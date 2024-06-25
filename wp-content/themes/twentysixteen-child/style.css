@@ -1,0 +1,10 @@
+/*
+ Theme Name:   Twenty Sixteen Child
+ Template:     twentysixteen
+ Version:      1.0.0
+*/
+body {
+    background-color: #f0f0f0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
