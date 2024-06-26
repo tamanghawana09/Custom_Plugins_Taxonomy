@@ -63,7 +63,7 @@ function form_meta_box_html($post){
 
     ?>
         <label for="meta_box_date">Date:</label>
-        <input type="text" id="meta_box_date" name="meta_box_date" value=" <?php echo esc_attr($date_value);?>"><br>
+        <input type="date" id="meta_box_date" name="meta_box_date" value=" <?php echo esc_attr($date_value);?>"><br>
         <label for="meta_box_text">Text:</label>
         <input type="text" id="meta_box_text" name="meta_box_text" value="<?php echo esc_attr( $text_value);?>"><br>
         <label for="meta_box_textarea">Textarea:</label>
@@ -76,11 +76,34 @@ function save_form_data($post_id){
         update_post_meta($post_id,'_meta_box_date',sanitize_text_field($_POST['meta_box_date']));
     }
     if(array_key_exists('meta_box_text',$_POST)){
-        update_post_meta($post_id,'_meta_box_date',sanitize_text_field($_POST['meta_box_text']));
+        update_post_meta($post_id,'_meta_box_text',sanitize_text_field($_POST['meta_box_text']));
     }
     if(array_key_exists('meta_box_textarea',$_POST)){
-        update_post_meta($post_id,'_meta_box_date',sanitize_text_field($_POST['meta_box_textarea']));
+        update_post_meta($post_id,'_meta_box_textarea',sanitize_text_field($_POST['meta_box_textarea']));
     }
 }
 
 add_action('save_post','save_form_data');
+
+//retrieve form input data or display data
+
+function display_data(){
+    global $post;
+    $date_value = get_post_meta($post->ID,'_meta_box_date',true);
+    $text_value = get_post_meta($post->ID,'_meta_box_text',true);
+    $textarea_value = get_post_meta($post->ID,'_meta_box_textarea',true);
+
+    ob_start();
+    ?>
+        <div class="meta-box-values">
+            <p><strong>Date:</strong><?php echo esc_html($date_value);?></p>
+            <p><strong>Text:</strong><?php echo esc_html($text_value);?></p>
+            <p><strong>Text Area:</strong><?php echo esc_html($textarea_value);?></p>
+        </div>
+    <?php
+
+    return ob_get_clean();
+}
+
+add_shortcode('data','display_data');
+
