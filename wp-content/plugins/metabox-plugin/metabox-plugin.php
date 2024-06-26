@@ -107,3 +107,54 @@ function display_data(){
 
 add_shortcode('data','display_data');
 
+//color picker metabox
+function add_color_picker_metabox() {
+    add_meta_box(
+        'color-picker',
+        'Color Picker',
+        'color_picker_html',
+        'post',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_color_picker_metabox');
+
+function color_picker_html($post) {
+    wp_nonce_field('save_meta_color', 'meta_color_nonce');
+    $value = get_post_meta($post->ID, 'meta-color', true);
+    ?>
+    <p>
+        <label for="meta-color" class="prfx-row-title"><?php _e('Color Picker', 'prfx-textdomain'); ?></label>
+        <input name="meta-color" type="text" value="<?php echo esc_attr($value); ?>" class="meta-color" />
+    </p>
+    <?php
+}
+
+function save_meta_color($post_id) {
+    if (!isset($_POST['meta_color_nonce']) || !wp_verify_nonce($_POST['meta_color_nonce'], 'save_meta_color')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (isset($_POST['meta-color'])) {
+        update_post_meta($post_id, 'meta-color', sanitize_text_field($_POST['meta-color']));
+    }
+}
+add_action('save_post', 'save_meta_color');
+
+function prfx_color_enqueue($hook_suffix) {
+    global $typenow;
+    if ($typenow == 'post') {
+        wp_enqueue_style('wp-color-picker');
+        wp_enqueue_script('meta-box-color-js', plugin_dir_url(__FILE__) . 'meta-box-color.js', array('wp-color-picker'), false, true);
+    }
+}
+add_action('admin_enqueue_scripts', 'prfx_color_enqueue');
