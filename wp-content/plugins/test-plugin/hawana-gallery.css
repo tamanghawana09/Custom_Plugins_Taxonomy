@@ -1,0 +1,29 @@
+.hawana-gallery {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.hawana-gallery li {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+.hawana-gallery li > span {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+}
+.hawana-gallery li a.hawana-gallery-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 2px 5px;
+    font-size: 12px;
+}
