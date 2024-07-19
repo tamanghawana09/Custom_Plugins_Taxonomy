@@ -1,0 +1,7 @@
+[05-Jul-2024 10:40:33 UTC] PHP Deprecated:  Function print_emoji_styles is deprecated since version 6.4.0! Use wp_enqueue_emoji_styles instead. in C:\xampp\htdocs\testing-site\wp-includes\functions.php on line 6078
+[05-Jul-2024 10:41:06 UTC] PHP Deprecated:  Function print_emoji_styles is deprecated since version 6.4.0! Use wp_enqueue_emoji_styles instead. in C:\xampp\htdocs\testing-site\wp-includes\functions.php on line 6078
+[05-Jul-2024 10:44:36 UTC] PHP Deprecated:  Function print_emoji_styles is deprecated since version 6.4.0! Use wp_enqueue_emoji_styles instead. in C:\xampp\htdocs\testing-site\wp-includes\functions.php on line 6078
+[05-Jul-2024 10:46:10 UTC] PHP Deprecated:  Function print_emoji_styles is deprecated since version 6.4.0! Use wp_enqueue_emoji_styles instead. in C:\xampp\htdocs\testing-site\wp-includes\functions.php on line 6078
+[05-Jul-2024 11:24:15 UTC] PHP Warning:  Undefined array key "host" in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1625
+[05-Jul-2024 11:24:15 UTC] PHP Warning:  Undefined array key "host" in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1627
+[05-Jul-2024 11:24:15 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1627
