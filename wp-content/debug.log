@@ -5,3 +5,22 @@
 [05-Jul-2024 11:24:15 UTC] PHP Warning:  Undefined array key "host" in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1625
 [05-Jul-2024 11:24:15 UTC] PHP Warning:  Undefined array key "host" in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1627
 [05-Jul-2024 11:24:15 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\testing-site\wp-includes\pluggable.php on line 1627
+[12-Sep-2024 05:35:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function Elementor\Core\get_plugins() in C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\core\wp-api.php:26
+Stack trace:
+#0 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\modules\compatibility-tag\base-module.php(96): Elementor\Core\Wp_Api->get_plugins()
+#1 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\modules\compatibility-tag\base-module.php(58): Elementor\Modules\CompatibilityTag\Base_Module->get_plugins_with_header()
+#2 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\modules\compatibility-tag\module.php(57): Elementor\Modules\CompatibilityTag\Base_Module->get_plugins_to_check()
+#3 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\modules\compatibility-tag\base-module.php(148): Elementor\Modules\CompatibilityTag\Module->get_plugins_to_check()
+#4 C:\xampp\htdocs\testing-site\wp-includes\class-wp-hook.php(324): Elementor\Modules\CompatibilityTag\Base_Module->Elementor\Modules\CompatibilityTag\{closure}('')
+#5 C:\xampp\htdocs\testing-site\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#6 C:\xampp\htdocs\testing-site\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#7 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\modules\system-info\module.php(338): do_action('elementor/syste...')
+#8 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\includes\tracker.php(241): Elementor\Modules\System_Info\Module::get_allowed_reports()
+#9 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\includes\tracker.php(540): Elementor\Tracker::get_system_reports_data()
+#10 C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\includes\tracker.php(141): Elementor\Tracker::get_tracking_data(false)
+#11 C:\xampp\htdocs\testing-site\wp-includes\class-wp-hook.php(324): Elementor\Tracker::send_tracking_data()
+#12 C:\xampp\htdocs\testing-site\wp-includes\class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#13 C:\xampp\htdocs\testing-site\wp-includes\plugin.php(565): WP_Hook->do_action(Array)
+#14 C:\xampp\htdocs\testing-site\wp-cron.php(191): do_action_ref_array('elementor/track...', Array)
+#15 {main}
+  thrown in C:\xampp\htdocs\testing-site\wp-content\plugins\elementor\core\wp-api.php on line 26
